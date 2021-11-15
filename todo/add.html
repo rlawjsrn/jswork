@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>바닐라 자바스크립트</h3>
+    <input type="text" id="txt">
+    <button id="btn" type="button">추가</button>
+    <select id="sel">
+        <option value="사과">사과</option>
+    </select>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        //javascript로 만들기
+        // let txt = document.getElementById("txt")
+        // let btn = document.getElementById("btn")
+        // let sel = document.getElementById("sel")
+        // btn.addEventListener("click", function(){
+        //     //텍스트필드의 입력값으로 option태그 만들어서 select에 추가
+        //     let option = document.createElement("option"); //option태그 만들기
+        //     option.innerHTML = txt.value;
+        //     option.value = txt.value; //option.setAttribute(txt.value)
+        //     sel.appendChild(option);
+        // })
+
+        //그대로 jquery로 만들기
+        /*let txt = $('#txt')
+        let btn = $('#btn')
+        let sel = $('#sel')
+
+        btn.on("click",function(){
+            let option = $("<option>");
+                option.html(txt.val());
+                sel.append(option);
+                
+        })*/
+        $('#btn').on("click", function(){ 
+            $("<option>").html($("#txt").val())
+                         .appendTo($("#sel")) 
+                         debugger
+            //텍스트필드 클리어
+            $('#txt').val('');
+        })
+            
+
+    </script>
+</body>
+</html>

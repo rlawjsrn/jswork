@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <h2>The fetch function</h2>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+    <script>
+        function loadDoc(){
+        fetch("ajax_info.txt")  //fetch가 open,send까지 다 해줌 ajax.html(파일참고)
+        .then(response => response.json())
+        .then(result => {   //var obj = JSON.parse(this.responseText)를 해준게 result(==obj).
+            
+            for(let emp of result){    //이름만 출력
+                document.getElementById("demo").innerHTML += 
+                                 `<div>${emp.name}</div>`;
+            }
+        })
+    }
+    </script>
+</body>
+</html>

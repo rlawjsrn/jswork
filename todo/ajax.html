@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="demo"></div>
+    <h2>The XMLHttpRequest Object</h2>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+
+
+    <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest(); //1) xhr객체 생성
+            xhttp.onload = function () { //3) onload
+                var obj = JSON.parse(this.responseText)
+                // for(i=0; i<obj.length; i++){
+                // document.getElementById("demo").innerHTML += "<input type='radio'>" + obj[i]; //4) 실행  
+                //  for(let name of obj){  //확장 for문 (위와같음)   emp는 배열 안의 한 값을 뜻함->{"id":1,"name":"park"}
+                //  document.getElementById("demo").innerHTML += 
+                //                 "<input type='radio'>" + name; 
+
+                  for(let emp of obj){  //확장 for문 (위와같음)   emp는 배열 안의 한 값을 뜻함->{"id":1,"name":"park"}
+                  document.getElementById("demo").innerHTML += 
+                                 `<input type='radio' value='${emp.id}'>${emp.name}`; //`(백틱) 기호에서만 ${}를 쓸 수 있다
+                }
+                for (i=0; i<obj.length; i++) {
+                    document.getElementById("demo").innerHTML +=
+                        `<input type='radio' value='${obj[i].id}'>${obj[i].name}`;
+                }
+            }
+            xhttp.open("GET", "ajax_info.txt"); //2) server연결 준비
+            xhttp.send();
+        }
+    </script>
+
+</body>
+
+</html>

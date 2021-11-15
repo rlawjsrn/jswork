@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            left: 100px;
+            position: absolute;
+
+        }
+
+        #dog {
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="cat" src="cat.JPG">
+    <img id="dog" src="dog.JPG">
+    <button id="btn" type="button">게임시작</button>
+
+    <script>
+        //start버튼 누르면 실행하도록하기 이동하는 거리는 랜덤으로
+        //let btn = document.getElementById("btn");
+
+        //imgMove를 1초마다 실행해라
+        let timer;
+
+        //버튼 클릭 이벤트
+        btn.addEventListener("click", function () {
+            let img = document.getElementsByTagName("img")[0];
+            let img2 = document.getElementsByTagName("img")[1];
+            img.style.left = "100px";
+            img2.style.left = "100px";
+
+            function imgMove() {
+                let left = img.style.left;
+                img.style.left = parseInt(left) + Math.random() * 100 + 'px';
+                let left2 = img2.style.left;
+                img2.style.left = parseInt(left2) + Math.random() * 100 + 'px';
+                
+                if (parseInt(left) > 500 || parseInt(left2) > 500) { //이미지가 800좌표를 넘어서면 멈춰라
+                    clearInterval(timer);
+                    if (parseInt(left) > 500) {
+                        window.alert("고양이가 세상을 지배했습니다!!!");
+                        img.style.left = "100px";
+                        img2.style.left = "100px";
+                    } else {
+                        window.alert("강아지가 세상을 지배했습니다!!!");
+                        img.style.left = "100px";
+                        img2.style.left = "100px";
+                    }
+                }
+            }
+            timer = setInterval(imgMove, 1000);  //1초에 이미지 한 번 움직이기
+        });
+    </script>
+</body>
+
+</html>

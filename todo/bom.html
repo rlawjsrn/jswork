@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>browser of model</h3>
+    <ul>
+        <li>open</li>
+        <li>move</li>
+        <li>close</li>
+        <li>read</li>
+    </ul>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div id="content">해시태그 <br><br><br><br><br><br><br><br><br><br><br>해시태그</div>
+    <script>
+        let lis = document.getElementsByTagName("li");
+        var naver;
+        lis[0].addEventListener("click", function(){ //첫번째 텍스트 필드값을 읽음
+            naver = window.open("add.html","naver","width=300,height=300")
+        })
+        lis[1].addEventListener("click", function(){
+            naver.moveTo(500,100);
+        })
+        lis[2].addEventListener("click", function(){
+            naver.close();
+        })
+        lis[3].addEventListener("click", function(){
+            console.log(naver.document.getElementById("txt").value);
+        })
+        //opener.document.
+    </script>
+</body>
+</html>

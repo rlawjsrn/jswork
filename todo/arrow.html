@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const sum = function sum(a, b) { //함수 중복 선언 방지로 함수 리터럴(const sum) 쓰기.
+            return a + b
+        }
+
+        const mul = (a, b) => a * b;
+        const divide = (a, b) => {  //조건이 있다면 {}를 뺄 수 없음
+            if (b == 0)
+                return 0;
+            return a / b;
+        }
+
+        console.log(sum(10, 20));
+        console.log(mul(10, 20));
+    </script>
+</body>
+
+</html>
